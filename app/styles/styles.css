@@ -1,1 +1,25 @@
+body,
+td {
+    margin: 20px;
+}
 
+table,
+td {
+    border-style: solid;
+    border-color: rgba(51, 51, 51, .74);
+}
+
+h1 {
+    text-align: center;
+}
+
+button,
+thead {
+    background-color: rgba(37, 187, 155, 0.51);
+    border-color: rgba(37, 187, 155, 0.51);
+    color: #000;
+}
+
+input {
+    background-color: rgba(37, 187, 155, 0.51);
+}

@@ -6,15 +6,16 @@
     <title>Top San Diego Spots</title>
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <!-- endbower -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/app/styles/styles.css">
     <!-- endinject -->
 </head>
 
-<body ng-controller="MainController">
+<body ng-controller="TopSpotsController as vm">
     <h1>Top Spots in San Diego</h1>
-    <table>
+    <table class="contianer">
         <thead>
             <tr>
                 <td>Name</td>
@@ -23,10 +24,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="topspot in topspots">
+            <!-- telling the table to repeat itself in an iteration to populate with .json info-->
+            <tr ng-repeat="topspot in vm.topspots">
                 <td>{{topspot.name}}</td>
                 <td>{{topspot.description}}</td>
                 <td>
+                    <!-- a google maps button that links to the location -->
                     <button><a target="_blank" href="https://www.google/maps?q={{topspot.location[0]}},{{topspot.location[1]}}">Google Maps</a></button>
                 </td>
             </tr>
@@ -34,25 +37,28 @@
     </table>
     <div class="form-inline inputTopSpotDiv">
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="name" placeholder="Enter Name">
+            <input class="form-control" type="text" ng-model="vm.name" placeholder="Enter Name">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="description" placeholder="Enter Description">
+            <input class="form-control" type="text" ng-model="vm.description" placeholder="Enter Description">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" ng-model="location1" placeholder="Enter Lattitude">
-            <input class="form-control" type="text" ng-model="location2" placeholder="Enter Longitude">
+            <input class="form-control" type="text" ng-model="vm.location1" placeholder="Enter Lattitude">
+            <input class="form-control" type="text" ng-model="vm.location2" placeholder="Enter Longitude">
         </div>
         <div class="form-group" id="submitButton">
-            <input type="button" value="Submit" class="btn btn-primary" ng-click="addRow()"></input>
+            <input type="button" value="Submit" class="btn btn-primary" ng-click="vm.addRow()"></input>
         </div>
     </div>
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <!-- endbower -->
     <!-- inject:js -->
     <script src="/app/app.js"></script>
+    <script src="/app/topspots.controller.js"></script>
+    <script src="/app/topspots.factory.js"></script>
     <!-- endinject -->
 </body>
 
