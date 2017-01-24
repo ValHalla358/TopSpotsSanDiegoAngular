@@ -19,7 +19,7 @@
         function getTopSpots() {
 
             var defer = $q.defer();
-
+// Get json file and alerting out if no data present
             $http({
                 method: 'GET',
                 url: '../topspots.json'
@@ -30,7 +30,7 @@
                     defer.reject('no data found :(')
                 }
 
-
+// error code
             }, function(error) {
                 console.log(error);
                 defer.reject(error);
@@ -42,3 +42,6 @@
         }
     }
 })();
+
+//reviewed by SS and GB
+

@@ -21,6 +21,7 @@
             getTopSpots();
 
         }
+// adding rows with value from json array
 
         vm.addRow = function() {
             vm.topspots.push({ 'name': vm.name, 'description': vm.description, 'location': [vm.location1, vm.location2] });
@@ -52,3 +53,4 @@
         }
     }
 })();
+//reviewed by SS and GB
